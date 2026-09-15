@@ -1,6 +1,6 @@
 from pyscript import document, display
 
-def placeOrder(e):
+def placeOrder(e): # just variable-ing
 
     prod1 = document.getElementById("LMXM4")
     prod2 = document.getElementById("LMXM3S")
@@ -9,7 +9,7 @@ def placeOrder(e):
     prod5 = document.getElementById("TV380")
     prod6 = document.getElementById("FDT")
 
-    items = ""
+    items = "" # checks if checkbox is checked and adds the item to list
     if prod1.checked: items += "Logitech MX Master 4<br>"
     if prod2.checked: items += "Logitech MX Master 3S<br>"
     if prod3.checked: items += "Razer Basilisk V3<br>"
@@ -17,7 +17,7 @@ def placeOrder(e):
     if prod5.checked: items += "Thermaltake View 380<br>"
     if prod6.checked: items += "Fractal Design Terra<br>"
 
-    subtotal = (
+    subtotal = ( # its just adding stuff if the product is checked
 
     (float(prod1.value) if prod1.checked else 0.0) + 
     (float(prod2.value) if prod2.checked else 0.0) + 
@@ -28,6 +28,8 @@ def placeOrder(e):
 
     )
 
+    # this took WAAYYY too long for how simple it is
+    # this is just an fstring with some extra stuff like html stuff which i was able to call by setting the textOut heading tag with the id textOut to the variable
     textOut = f"""
     -------- reciept --------<br>
     {items if items else "no items selected<br>"}
