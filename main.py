@@ -30,14 +30,18 @@ def placeOrder(e): # just variable-ing
 
     # this took WAAYYY too long for how simple it is
     # this is just an fstring with some extra stuff like html stuff which i was able to call by setting the textOut heading tag with the id textOut to the variable
+
+    vat = subtotal * 0.12
+    total = subtotal + vat
+    
     textOut = f"""
     -------- reciept --------<br>
     {items if items else "no items selected<br>"}
     -------------------------<br>
-    subtotal: ₱{subtotal}<br>
-    vat: +12%<br>
+    subtotal: ₱{subtotal:,.2f}<br>
+    vat: {vat:,.2f}<br>
     -------------------------<br>
-    total: ₱{subtotal + (subtotal * 0.12)}
+    total: ₱{total:,.2f}
     """
     
     document.getElementById("textOut").innerHTML = textOut
